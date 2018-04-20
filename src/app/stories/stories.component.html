@@ -1,12 +1,33 @@
 <h2>Stories</h2>
+
 <div class="text-center">
   <p class="lead" *ngIf="loading">Loading ....</p>
 </div>
+<div>
+  <button (click)="postStory()">Post</button>
+  <button (click)="getStories()">Get</button>
+  <button (click)="putStory()">Put</button>
+</div>
 <div *ngIf="stories">
+
 <ul class="stories">
-  <li *ngFor="let story of stories | async">
-    <app-story-form [story]=Story></app-story-form>
-  </li>
+  <div class="row">
+      <div class="col-sm-3">
+        
+  <app-story-form *ngFor="let story of stories | async" 
+    [story]=story>
+  </app-story-form>
+</div>
+<div class="col-sm-4">
+
+</div>
+<div class="col-sm-4">
+  
+  </div>
+</div>
+  <!-- <li *ngFor="let story of stories | async">
+    
+  </li> -->
 </ul>
 
 </div>

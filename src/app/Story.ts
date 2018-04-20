@@ -1,8 +1,10 @@
 export class Story{
-        constructor(
-        Id: string,
-        Name: string,
-        Content: string,
+        constructor(public Id: string){
+
+        }    
+        
+        Name: string;
+        Content: string;
         CreatedTimestamp: String
-        ){}
+        
 }

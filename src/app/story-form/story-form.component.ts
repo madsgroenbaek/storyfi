@@ -10,7 +10,7 @@ import {Form} from '@angular/forms'
 })
 export class StoryFormComponent implements OnInit {
   
-  @Input() story: Story = new Story("name","sd","jp","no");
+  @Input() story: Story;
   //@Output() valueChange:EventEmitter<Story> = new EventEmitter<Story>()
 
   //story: Story;
@@ -20,7 +20,7 @@ export class StoryFormComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.story=new Story("ssss","sss","sss","sss")
+    //this.story=new Story("ssss","sss","sss","sss")
   }
 
 }
