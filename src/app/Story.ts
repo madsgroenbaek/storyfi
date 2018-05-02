@@ -6,5 +6,6 @@ export class Story{
         Name: string;
         Content: string;
         CreatedTimestamp: String
+        CollectionList: Story[]
         
 }

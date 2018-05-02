@@ -6,28 +6,36 @@
 <div>
   <button (click)="postStory()">Post</button>
   <button (click)="getStories()">Get</button>
+  <button (click)="getStory()">Get Story</button>
   <button (click)="putStory()">Put</button>
+
 </div>
 <div *ngIf="stories">
 
-<ul class="stories">
+
   <div class="row">
       <div class="col-sm-3">
         
   <app-story-form *ngFor="let story of stories | async" 
-    [story]=story>
+    [story]=story (click)="onSelectStory(story)">
   </app-story-form>
 </div>
 <div class="col-sm-4">
+  <div *ngIf="selectedStory">
+    <app-story-form *ngFor="let story of selectedStory.CollectionList" 
+    [story]=story (click)="onSelectStory(story)">
+  </app-story-form>
+  
 
+  </div>
 </div>
 <div class="col-sm-4">
-  
+  jammen dog
   </div>
 </div>
   <!-- <li *ngFor="let story of stories | async">
     
   </li> -->
-</ul>
+
 
 </div>

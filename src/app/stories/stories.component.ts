@@ -15,6 +15,9 @@ import { HttpResponse } from '@angular/common/http';
 export class StoriesComponent implements OnInit {
   private loading: boolean = false;
   stories: Observable<Story[]>;
+  //story: Observable<Story>
+  story: Story;
+  selectedStory: Story;
   private updatedStory: Story;
   username: Story[] = [];
   myFinalValue: string;
@@ -39,7 +42,14 @@ export class StoriesComponent implements OnInit {
     this.stories = this.storiesService.getStories()
     this.loading = false;
 }
-  postStory(){
+getStory(){
+  this.loading = true
+  //this.storiesService.getStory("98649e6b-f8c7-4f3b-a157-9caa4fc8abd2").subscribe(res => console.log(res))
+  this.storiesService.getStory("98649e6b-f8c7-4f3b-a157-9caa4fc8abd2").subscribe(res => this.story=res)
+  //this.stor=this.storiesService.getStory("98649e6b-f8c7-4f3b-a157-9caa4fc8abd2")
+  this.loading = false;
+}
+postStory(){
     this.storiesService.postStory().subscribe(res =>
        {var st = res as Story;
         console.log(res)
@@ -58,6 +68,7 @@ export class StoriesComponent implements OnInit {
   putStory(name:String){
     
     var st: Story[] = [];
+    
     var jsStory: Story;
     var txt: String;
     this.stories.observeOn
@@ -97,5 +108,8 @@ export class StoriesComponent implements OnInit {
     
     
 
+  }
+  onSelectStory(story){
+    this.storiesService.getStory(story.Id).subscribe(res => this.selectedStory=res)
   }
 }    

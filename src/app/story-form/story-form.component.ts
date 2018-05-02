@@ -1,6 +1,7 @@
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import {Story} from '../Story'
 import {Form} from '@angular/forms'
+import {StoriesService} from '../stories.service'
 
 @Component({
   selector: 'app-story-form',
@@ -15,12 +16,15 @@ export class StoryFormComponent implements OnInit {
 
   //story: Story;
   
-  constructor() {
+  constructor(private storiesService: StoriesService) {
     
    }
 
   ngOnInit() {
     //this.story=new Story("ssss","sss","sss","sss")
+  }
+  onFormClick(ev:any){
+    this.storiesService.getStory(this.story.Id).subscribe(res =>this.story=res);
   }
 
 }

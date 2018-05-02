@@ -1,5 +1,7 @@
 <div ng-controller="ExampleController" draggable="true">
-  <form novalidate class="simple-form" ng-if="story">
+  <form novalidate class="simple-form" ng-if="story"
+  (click)="onFormClick($event)"
+  >
     
     <h4 draggable="true">{{story.Name}}      <!-- <input type="text" [(ngModel)]="story.Name"  [ngModelOptions]="{standalone: true}" [value]="story.Name"/> -->
     </h4>
